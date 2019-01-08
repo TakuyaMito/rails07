@@ -20,7 +20,7 @@
           <span><%= image_tag "icons/logo.png", class: "navbar-brand" %></span>
         <% end %>
         <ul class="nav navbar-nav navbar-right">
-          <% if logged_in? %>
+
             <li>
               <%= link_to "#" do %>
                 <%= image_tag "icons/heart.png" %>
@@ -31,6 +31,7 @@
                 <%= image_tag "icons/camera.png" %>
               <% end %>
             </li>
+          <% if logged_in? %>
             <li>
               <%= link_to logout_path, method: :delete do %>
                 <%= image_tag "icons/logout.png" %>

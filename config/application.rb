@@ -8,6 +8,7 @@ Bundler.require(*Rails.groups)
 
 module Pictgram
   class Application < Rails::Application
-  config.autoload_paths += Dir[Rails.root.join('app', 'uploaders')]
-end
+    config.load_defaults 5.2
+    config.autoload_paths += Dir[Rails.root.join('app', 'uploaders')]
   end
+end
