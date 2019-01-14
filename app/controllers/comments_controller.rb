@@ -7,14 +7,10 @@ class CommentsController < ApplicationController
     @comment = Comment.new
     @comment.topic_id = params[:topic_id]
     @comment.user_id = session[:user_id]
-    respond_to do |format|
-      format.html
-      format.js
-    end
   end
 
   def create
-    @comment = current_user.comments.new(comment_params)
+    @comment = current_user.comments.new(comment_params )
 
     if @comment.save
       redirect_to topics_path, success: 'コメントを登録しました'
@@ -23,9 +19,9 @@ class CommentsController < ApplicationController
     end
   end
 
-  private 
+  private
   def comment_params 
-    params.require(:comment).permit(:user_id, :topic_id, :comment) 
-    params.require(:user).permit(:name, :email)
+    params.require(:comment).permit(:user_id, :topic_id, :comment)
+  #  params.require[:user].permit[:name, :email]
   end
 end
