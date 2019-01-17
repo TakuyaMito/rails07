@@ -10,9 +10,13 @@ Rails.application.routes.draw do
 
   resources :users
   resources :topics
+  resources :favorites, only: [:create, :destroy]
 
   get 'favorites/index'
   post '/favorites', to: 'favorites#create'
+
+  delete '/favorites', to: 'favorites#destroy'
+
 
   get 'comments/new'
   get 'comments/index'
